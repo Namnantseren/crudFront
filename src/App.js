@@ -5,9 +5,10 @@ import Filter from "./body/Filter";
 import FilterBrand from "./body/FilterBrand";
 import Add from "./body/Add";
 import { useEffect, useState } from "react";
+// import Data from "../data/Data.js";
 
 let btnNames = [
-  { name: "All product", value: "all", component: <Body /> },
+  { name: "All product", value: "all", component: <Body/> },
   { name: "Load more", value: "load", component: <Loadmore /> },
   { name: "Filter by category", value: "fCategory", component: <Filter /> },
   { name: "Filter by Brand", value: "fBrand", component: <FilterBrand /> },

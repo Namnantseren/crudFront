@@ -1,5 +1,6 @@
 import Table from "react-bootstrap/Table";
-import '../style/main.css'
+import "../style/main.css";
+import { Data } from "../data/Data.js";
 
 export default function Body() {
   return (
@@ -19,23 +20,32 @@ export default function Body() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>URL</td>
-              <td>name</td>
-              <td>35515</td>
-              <td>Apple</td>
-              <td>phone</td>
-              <td>10%</td>
-              <td>
-                <div>
-                  <button className="optionEdit">Edit</button>
-                  /
-                  <button className="optionDelete">Delete</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+              {Data &&
+                Data.map((runner, index) => {
+                  return (
+                    <div key={index}>
+                      <tr>
+                        <td className="productImage">
+                          <img src={runner.image} alt="" />
+                        </td>
+                        <td>{runner.name}</td>
+                        <td>{runner.price}</td>
+                        <td>{runner.brand}</td>
+                        <td>{runner.category}</td>
+                        <td>{runner.sale}</td>
+                        <td>
+                          <div>
+                            <button className="optionEdit">Edit</button>/
+                            <button className="optionDelete">Delete</button>
+                          </div>
+                        </td>
+                      </tr>
+                    </div>
+                  );
+                })}
+            </tbody>
         </Table>
+        
       </div>
     </div>
   );
