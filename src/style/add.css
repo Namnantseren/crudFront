@@ -1,0 +1,61 @@
+.fiveInput {
+    width: 687.5px;
+    height: 59px;
+    border-radius: 8px;
+    border: 1px solid #8B89F9;
+    margin: 12px 0px 0px 50px;
+}
+
+.twoPrice {
+    width: 687.5px;
+    height: 59px;
+    border-radius: 8px;
+    border: 1px solid #8B89F9;
+    margin: 12px 0px 0px 33px;
+}
+
+.containerOfInputs {
+    width: 1500px;
+}
+
+.twoPrice::placeholder {
+    padding-left: 20px;
+}
+
+.fiveInput::placeholder {
+    padding-left: 20px;
+}
+
+.categoryInput {
+    width: 1408px;
+}
+
+.purpleBtn {
+    width: 512px;
+    height: 64px;
+    border-radius: 8px;
+    background-color: #8B89F9;
+    color: white;
+    border: none;
+    margin: 10px 50px;
+}
+
+.purpleBtn:active {
+    background-color: #807fc6;
+}
+
+.containerOfAdd {
+    width: 1440px;
+    padding: 50px 0px 0px 0px ;
+    margin: auto;
+}
+
+.containerOfBottom {
+    width: 687.5px;
+    padding-top: 12px;
+}
+
+h2 {
+    margin-left: 50px;
+    font-weight: 200;
+}

@@ -1,0 +1,12 @@
+.main {
+    margin: 0px 35px 0px 35px;
+}
+
+.optionEdit {
+    border: 0;
+}
+
+.optionDelete {
+    border: 0;
+    color: red;
+}

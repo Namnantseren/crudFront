@@ -1,0 +1,10 @@
+.product {
+    width: 448px;
+    height: 177px;
+    border-radius: 8px;
+    border: 1px solid #DEDEDE;
+}
+
+.flex {
+    z-index: 1;
+}
