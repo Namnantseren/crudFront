@@ -4,7 +4,7 @@ export default function Add() {
     return (
         <div>
             <div className="outerOfFilter">
-            <Product/>
+                <Product/>
             </div>
         </div>
     )

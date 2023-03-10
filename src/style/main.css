@@ -4,11 +4,13 @@
 
 .optionEdit {
     border: 0;
+    background: 0;
 }
 
 .optionDelete {
     border: 0;
     color: red;
+    background: 0;
 }
 
 .productImage img{

@@ -4,18 +4,21 @@ import Loadmore from "./body/Loadmore";
 import Filter from "./body/Filter";
 import FilterBrand from "./body/FilterBrand";
 import Add from "./body/Add";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 // import Data from "../data/Data.js";
 
 let btnNames = [
-  { name: "All product", value: "all", component: <Body/> },
+  { name: "All product", value: "all", component: <Body /> },
   { name: "Load more", value: "load", component: <Loadmore /> },
   { name: "Filter by category", value: "fCategory", component: <Filter /> },
   { name: "Filter by Brand", value: "fBrand", component: <FilterBrand /> },
   { name: "Add product", value: "add", component: <Add /> },
 ];
 
+export const ProductsContext = createContext();
+
 function App() {
+  const [data, setData] = useState();
   const [current, setCurrent] = useState(btnNames[0]);
   useEffect(() => {
     if (localStorage.getItem("btnVal")) {
@@ -32,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <div className="outer">
-        {btnNames.map((btn, index)=>(
+        {btnNames.map((btn, index) => (
           <button
             key={index}
             onClick={() => currentStateHandler(btn)}
@@ -44,7 +47,9 @@ function App() {
           </button>
         ))}
       </div>
-      <div>{current.component}</div>
+      <ProductsContext.Provider value={{setData,data,current}}>
+        <div>{current.component}</div>
+      </ProductsContext.Provider>
     </div>
   );
 }

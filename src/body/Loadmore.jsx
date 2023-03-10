@@ -1,9 +1,30 @@
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
-import '../style/main.css'
+import { ProductsContext } from "../App";
+import "../style/main.css";
+import CalledData from "../subComponent/CalledData";
 
 export default function Add() {
-    return (
-        <div className="main">
+  const { setData, current } = useContext(ProductsContext);
+  const [load, setLoad] = useState(3);
+
+  useEffect(() => {
+    if (current.value === "load") {
+      axios
+        .get(`http://localhost:2000/products/limit?limit=${load}`)
+        .then((data) => setData(data.data));
+    }
+  }, [current]);
+
+  function takeLimit() {
+    setLoad(load + 3);
+    axios
+      .get(`http://localhost:2000/products/limit?limit=${load}`)
+      .then((data) => setData(data.data));
+  }
+  return (
+    <div className="main">
       <div className="d-flex justify-content-around mt-3"></div>
       <div>
         <Table striped>
@@ -18,25 +39,11 @@ export default function Add() {
               <td>Options</td>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>URL</td>
-              <td>name</td>
-              <td>35515</td>
-              <td>Apple</td>
-              <td>phone</td>
-              <td>10%</td>
-              <td>
-                <div>
-                  <button className="optionEdit">Edit</button>
-                  /
-                  <button className="optionDelete">Delete</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+          <CalledData />
         </Table>
+
+        <button onClick={takeLimit}>Load more</button>
       </div>
     </div>
-    )
+  );
 }
