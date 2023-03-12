@@ -1,17 +1,19 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import axios from "axios";
 import { ProductsContext } from "../App";
 
 export default function CalledData() {
-    const{setData,data,current}=useContext(ProductsContext)
-
+  const { setData, data, current } = useContext(ProductsContext);
 
   useEffect(() => {
-    if (current.value !== "load"){
-    axios
-      .get(`http://localhost:2000/product`)
-      .then((data) => setData(data.data));}
+    if (current.value !== "load") {
+      axios
+        .get(`http://localhost:2000/product`)
+        .then((data) => setData(data.data));
+    }
+    // eslint-disable-next-line
   }, [current]);
+
   return (
     <tbody>
       {data &&
